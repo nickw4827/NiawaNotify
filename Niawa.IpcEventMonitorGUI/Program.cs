@@ -8,6 +8,7 @@ namespace Niawa.IpcEventMonitorGUI
 {
     static class Program
     {
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

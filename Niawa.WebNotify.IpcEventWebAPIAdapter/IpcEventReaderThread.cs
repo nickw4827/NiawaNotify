@@ -8,6 +8,7 @@ namespace Niawa.WebNotify.IpcEventWebAPIAdapter
 {
     public class IpcEventReaderThread : IDisposable 
     {
+
         /* #threadPattern# */
 
         /* Logging */

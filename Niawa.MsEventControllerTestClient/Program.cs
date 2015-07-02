@@ -8,6 +8,7 @@ namespace Niawa.MsEventControllerTestClient
 {
     class Program
     {
+
         static void Main(string[] args)
         {
         }

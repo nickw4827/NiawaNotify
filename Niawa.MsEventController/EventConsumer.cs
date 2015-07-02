@@ -13,6 +13,7 @@ namespace Niawa.MsEventController
     public class EventConsumer
     {
 
+
         /* Logging */
         NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         

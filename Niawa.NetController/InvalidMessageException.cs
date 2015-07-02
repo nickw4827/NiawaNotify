@@ -10,6 +10,7 @@ namespace Niawa.NetController
     [Serializable]
     public class InvalidMessageException : Exception
     {
+
         // Constructors
         public InvalidMessageException(string message)
             : base(message)

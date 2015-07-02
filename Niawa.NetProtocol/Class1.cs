@@ -8,5 +8,6 @@ namespace Niawa.NetProtocol
 {
     public class Class1
     {
+
     }
 }

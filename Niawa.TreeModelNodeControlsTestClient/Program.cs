@@ -10,6 +10,7 @@ namespace Niawa.TreeModelNodeControlsTestClient
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

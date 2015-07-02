@@ -10,6 +10,7 @@ namespace Niawa.ThreadingTestClient
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Niawa.UtilitiesTestClient
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

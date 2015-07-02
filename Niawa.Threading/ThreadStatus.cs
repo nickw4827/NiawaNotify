@@ -8,6 +8,7 @@ namespace Niawa.Threading
 {
     public class ThreadStatus
     {
+
         /* Logging */
         NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
        

@@ -8,6 +8,7 @@ namespace Niawa.Utilities
 {
     public class IdGeneratorUtils
     {
+
         /* Constants */
         public readonly static int ID_ROOT_NIAWA_MMF_CONTAINER = 101;
         public readonly static int ID_ROOT_NIAWA_EVENT_MESSAGE = 201;

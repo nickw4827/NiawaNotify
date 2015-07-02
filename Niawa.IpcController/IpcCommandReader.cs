@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Niawa.IpcController
 {
+
     public class IpcCommandReader : IDisposable
     {
         /* #threadPattern# */

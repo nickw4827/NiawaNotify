@@ -8,6 +8,7 @@ namespace Niawa.IpcEventMonitor
 {
     class Program
     {
+
         static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
        
         static void Main(string[] args)

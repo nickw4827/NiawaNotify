@@ -10,6 +10,7 @@ namespace Niawa.IpcEventTestClient
     {
         static void Main(string[] args)
         {
+
             MockNiawaAdHocNetworkAdapter adapter = new MockNiawaAdHocNetworkAdapter();
             adapter.Start();
 

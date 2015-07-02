@@ -10,6 +10,7 @@ namespace Niawa.NetControllerTestClient
     {
         static void Main(string[] args)
         {
+
             /***************/
             /* UDP testing */
             /***************/

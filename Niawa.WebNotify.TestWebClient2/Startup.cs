@@ -12,6 +12,7 @@ namespace Niawa.WebNotify.TestWebClient2
     {
         public void Configuration(IAppBuilder app)
         {
+
             ConfigureAuth(app);
         }
     }

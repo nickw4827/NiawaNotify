@@ -10,6 +10,7 @@ namespace Niawa.WebNotify.TestWebClient
     {
         public void Send(int id, string sender, string message)
         {
+
             // Call the broadcastMessage method to update clients.
             Clients.All.broadcastMessage(id, sender, message);
         }

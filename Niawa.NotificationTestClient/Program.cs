@@ -10,6 +10,7 @@ namespace Niawa.NotificationTestClient
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Niawa.NetProtocolTestClient
 {
     class Program
     {
+
         static void Main(string[] args)
         {
             ConvertGUID();

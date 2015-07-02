@@ -10,6 +10,7 @@ namespace Niawa.MsEventIpcEventTestClient
     {
         static void Main(string[] args)
         {
+
         }
     }
 }

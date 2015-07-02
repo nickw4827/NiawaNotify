@@ -18,7 +18,6 @@ namespace Niawa.WebNotify.WebClient
         {
             try
             {
-                
                 //register with resource provider so other classes can locate it
                 Trace.TraceInformation("NiawaSRHub: Registering NiawaSRHub with provider");
                 NiawaResourceProvider.RegisterNiawaSRHub(this);

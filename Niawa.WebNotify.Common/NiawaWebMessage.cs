@@ -8,6 +8,7 @@ namespace Niawa.WebNotify.Common
 {
     public class NiawaWebMessage
     {
+
         public int Id { get; set; }
         public string Sender { get; set; }
         public string Message { get; set; }

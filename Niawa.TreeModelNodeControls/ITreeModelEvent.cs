@@ -8,6 +8,7 @@ namespace Niawa.TreeModelNodeControls
 {
     public interface ITreeModelEvent
     {
+
         Niawa.IpcController.IpcEvent IpcEvent { get; set; }
         string NodeText { get; set; }
         string NodeID { get; set; }

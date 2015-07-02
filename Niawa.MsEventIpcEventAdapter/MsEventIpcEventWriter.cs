@@ -8,6 +8,7 @@ namespace Niawa.MsEventIpcEventAdapter
 {
     public class MsEventIpcEventWriter : IDisposable 
     {
+
         /* #threadPattern# */
 
         /* Logging */

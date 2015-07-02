@@ -10,6 +10,7 @@ namespace Niawa.WebNotify.TestWebClient3
     {
         public NiawaSRHub()
         {
+
             //register with resource provider so other classes can locate it
             NiawaResourceProvider.RegisterNiawaSRHub(this);
         }
