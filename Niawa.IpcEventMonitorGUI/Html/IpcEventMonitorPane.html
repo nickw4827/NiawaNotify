@@ -1,0 +1,373 @@
+﻿
+<html>
+<head>
+    <title>IPC Events (IpcEventMonitorPane)</title>
+    <script src="jquery.min.js" type="text/javascript"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>-->
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript">
+
+        var ix = 0;
+
+        function resetStatusView(viewData) {
+
+            populateThreadStatusBlock(viewData);
+
+        }
+
+        function addRow(rowValue) {
+
+            try
+            {
+                var mainDiv = document.getElementById('maincontent');
+                var innerDiv = document.createElement('div');
+                innerDiv.className = 'contentblock';
+                mainDiv.appendChild(innerDiv);
+
+                var obj = jQuery.parseJSON(rowValue);
+
+                for (var k in obj) {
+
+                    if (k == "EventMessageDetail") {
+                        ix = ix + 1;
+
+                        var leftDiv = document.createElement('div');
+                        leftDiv.className = 'contentleft';
+                        innerDiv.appendChild(leftDiv);
+
+                        //leftDiv.innerHTML = "<b><a href=\"#" + ix + "\" onclick=\"showDiv(" + ix + ")\">" + k + "</a></b>" + "<div id=\"" + ix + "\" style=\"display:none\">" + obj[k] + "</div>";
+                        leftDiv.innerHTML = "<b><a href=\"javascript:void(0);\" onclick=\"showDiv(" + ix + ")\">" + k + "</a></b>" + "<div id=\"" + ix + "\" style=\"display:none\">" + obj[k] + "</div>";
+                    }
+                    else if (k == "EventType") {
+                        ix = ix + 1;
+
+                        var leftDiv = document.createElement('div');
+                        leftDiv.className = 'contentleft';
+                        innerDiv.appendChild(leftDiv);
+
+                        leftDiv.innerHTML = "<span style=\"font-size:16px\"><b>" + k + ": </b>" + obj[k] + "</p>";
+                    }
+                    else if (k == "EventMessage") {
+                        ix = ix + 1;
+
+                        var leftDiv = document.createElement('div');
+                        leftDiv.className = 'contentleft';
+                        innerDiv.appendChild(leftDiv);
+
+                        leftDiv.innerHTML = "<span style=\"font-size:16px\"><b>" + k + ": </b>" + obj[k] + "</span>";
+                    }
+                    else {
+                        //leftDiv.innerHTML = "<b>" + k + ": </b>" + obj[k];
+                    }
+                }
+
+                for (var k in obj) {
+
+                    if (k == "EventMessageDetail") {
+                        //leftDiv.innerHTML = "<b><a href=\"#\" onclick=\"showDiv(" + ix + ")\">" + k + "</a></b>" + "<div id=\"" + ix + "\" style=\"display:none\">" + obj[k] + "</div>";
+                    }
+                    else if (k == "EventType") {
+                        //leftDiv.innerHTML = "<span style=\"font-size:16px\"><b>" + k + ": </b>" + obj[k] + "</p>";
+                    }
+                    else if (k == "EventMessage") {
+                        //leftDiv.innerHTML = "<span style=\"font-size:16px\"><b>" + k + ": </b>" + obj[k] + "</span>";
+                    }
+                    else {
+                        ix = ix + 1;
+
+                        var leftDiv = document.createElement('div');
+                        leftDiv.className = 'contentleft';
+                        innerDiv.appendChild(leftDiv);
+
+                        leftDiv.innerHTML = "<b>" + k + ": </b>" + obj[k];
+                    }
+                }
+
+            }
+            catch (e) {
+
+                var errMsg = "Error adding row: " + e.message + " Data [" + rowValue + "]";
+
+                var leftDiv = document.createElement('div');
+                leftDiv.className = 'contentleft';
+                innerDiv.appendChild(leftDiv);
+                leftDiv.innerHTML = errMsg;
+
+                alert(errMsg);
+
+            }
+
+
+        }
+
+        function showDiv(ix)
+        {
+            var div = document.getElementById(ix);
+            div.style.display = div.style.display == 'none' ? 'block' : 'none';
+        }
+
+        function populateThreadStatusBlock(jsonString) {
+
+
+            try
+            {
+                /***********************
+                 json root
+                 ***********************/
+                var obj = jQuery.parseJSON(jsonString);
+
+                for (var k in obj) {
+
+                    switch (k) {
+                        case "EventID":
+                            break;
+                        case "EventDate":
+                            break;
+                        case "ApplicationName":
+                            break;
+                        case "ApplicationInstance":
+                            break;
+                        case "NodeID":
+                            break;
+                        case "ParentNodeID":
+                            break;
+                        case "EventType":
+                            break;
+                        case "EventMessage":
+                            break;
+                        case "EventMessageDetail":
+                            /***********************
+                             json event message detail
+                             ***********************/
+                            var obj2 = jQuery.parseJSON(obj[k]);
+
+                            document.getElementById('tcb_1').style.display = 'none';
+                            document.getElementById('tcb_2').style.display = 'none';
+                            document.getElementById('tcb_3').style.display = 'none';
+                            document.getElementById('tcb_4').style.display = 'none';
+                            document.getElementById('tcb_5').style.display = 'none';
+                            document.getElementById('tcb_6').style.display = 'none';
+                            document.getElementById('tcb_7').style.display = 'none';
+                            document.getElementById('tcb_8').style.display = 'none';
+                            document.getElementById('tcb_9').style.display = 'none';
+
+                            var ix2 = 0;
+
+                            for (var k2 in obj2) {
+                                if (k2.substring(0, 4) == "str:") {
+                                    ix2++;
+                                    switch (ix2) {
+                                        case 1:
+                                            $("#tcb_1k").text(k2);
+                                            $("#tcb_1v").text(obj2[k2]);
+                                            document.getElementById('tcb_1').style.display = 'block';
+                                            break;
+                                        case 2:
+                                            $("#tcb_2k").text(k2);
+                                            $("#tcb_2v").text(obj2[k2]);
+                                            document.getElementById('tcb_2').style.display = 'block';
+                                            break;
+                                        case 3:
+                                            $("#tcb_3k").text(k2);
+                                            $("#tcb_3v").text(obj2[k2]);
+                                            document.getElementById('tcb_3').style.display = 'block';
+                                            break;
+                                        case 4:
+                                            $("#tcb_4k").text(k2);
+                                            $("#tcb_4v").text(obj2[k2]);
+                                            document.getElementById('tcb_4').style.display = 'block';
+                                            break;
+                                        case 5:
+                                            $("#tcb_5k").text(k2);
+                                            $("#tcb_5v").text(obj2[k2]);
+                                            document.getElementById('tcb_5').style.display = 'block';
+                                            break;
+                                        case 6:
+                                            $("#tcb_6k").text(k2);
+                                            $("#tcb_6v").text(obj2[k2]);
+                                            document.getElementById('tcb_6').style.display = 'block';
+                                            break;
+                                        case 7:
+                                            $("#tcb_7k").text(k2);
+                                            $("#tcb_7v").text(obj2[k2]);
+                                            document.getElementById('tcb_7').style.display = 'block';
+                                            break;
+                                        case 8:
+                                            $("#tcb_8k").text(k2);
+                                            $("#tcb_8v").text(obj2[k2]);
+                                            document.getElementById('tcb_8').style.display = 'block';
+                                            break;
+                                        case 9:
+                                            $("#tcb_9k").text(k2);
+                                            $("#tcb_9v").text(obj2[k2]);
+                                            document.getElementById('tcb_9').style.display = 'block';
+                                            break;
+                                        default:
+                                            break;
+                                    }
+                                }
+                            }
+
+                            for (var k2 in obj2) {
+
+                                switch (k2) {
+                                    //case "ParentThreadID":
+                                    //    break;
+                                    //case "ThreadID":
+                                    //    break;
+                                    case "ThreadStatus":
+                                        /***********************
+                                         json thread status
+                                         ***********************/
+                                        var obj3 = jQuery.parseJSON(obj2[k2]);
+
+                                        for (var k3 in obj3) {
+
+                                            switch (k3) {
+                                                case "Description":
+                                                    $("#tsb_ThreadName").text(obj3[k3]);
+                                                    $("#header_1").text(obj3[k3]);
+                                                    break;
+                                                case "NodeID":
+                                                    $("#tsb_NodeID").text(obj3[k3]);
+                                                    break;
+                                                case "ParentNodeID":
+                                                    $("#tsb_ParentNodeID").text(obj3[k3]);
+                                                    break;
+                                                case "Status":
+                                                    $("#tsb_ThreadStatus").text(obj3[k3]);
+                                                    break;
+                                                case "StatusDate":
+                                                    $("#tsb_LastReportedDate").text(obj3[k3]);
+                                                    break;
+                                                case "Initialized":
+                                                    break;
+                                                case "InitializedDate":
+                                                    $("#tsb_InitializedDate").text(obj3[k3]);
+                                                    break;
+                                                case "Finalized":
+                                                    break;
+                                                case "FinalizedDate":
+                                                    break;
+                                                case "ThreadHealthFailed":
+                                                    $("#tsb_ThreadHealth").text(obj3[k3]);
+                                                    break;
+                                                case "ThreadHealthDate":
+                                                    break;
+                                                case "ThreadActive":
+                                                    break;
+                                                case "ThreadEnabled":
+                                                    break;
+                                                case "ErrorCount":
+                                                    $("#tsb_ErrorCount").text(obj3[k3]);
+                                                    break;
+                                                case "MessageCount":
+                                                    $("#tsb_MessagesProcessedCount").text(obj3[k3]);
+                                                    break;
+                                                case "MessageErrorCount":
+                                                    $("#tsb_MessageErrorsCount").text(obj3[k3]);
+                                                    break;
+                                                case "LastErrorDate":
+                                                    break;
+                                                case "LastMessageDate":
+                                                    break;
+                                                case "LastMessageErrorDate":
+                                                    break;
+                                                default:
+                                                    //json ThreadStatus kvp not recognized
+                                            }
+
+                                        }
+
+                                        break;
+                                    default:
+                                        //json EventMessageDetail kvp not recognized
+                                }
+                            }
+                            break;
+
+                        default:
+                            //json root kvp not recognized
+                    }
+
+                }
+
+
+            }
+            catch (e) {
+
+                var errMessage = "Error populating thread status block: " + e.message + " Data [" + jsonString + "]";
+
+                $("#tsb_ThreadStatus").text(errMessage);
+
+                alert(errMsg);
+
+            }
+
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="content" class="clearfix">
+            <div id="nav">
+                <div id="nav1" class="navblock">
+                    <ul>
+                        <li>IpcEventMonitorPane</li>
+                        <!--<li>Summary</li>
+                        <li>Current Item</li>-->
+                    </ul>
+                </div>
+                <div id="nav2" class="navblock">
+                    <ul>
+                        <!--<li>Item 1</li>
+                        <li>Item 2</li>
+                        <li>Item 3</li>
+                        <li>Item 4</li>-->
+
+                    </ul>
+                </div>
+            </div>
+            <div id="maincontent">
+                <div class="contentblock" id="ThreadStatusBlock">
+                    <p>
+                        <b>Thread:</b> <span id='tsb_ThreadName'></span><br />
+                        <b>Status:</b> <span id='tsb_ThreadStatus'></span><br />
+                        <b>Initialized Date:</b> <span id='tsb_InitializedDate'></span><br />
+                        <b>Last Reported Date:</b> <span id='tsb_LastReportedDate'></span><br />
+                        <b>Health:</b> <span id='tsb_ThreadHealth'></span><br />
+                        <b>Errors:</b> <span id='tsb_ErrorCount'></span><br />
+                        <b>Messages Processed:</b> <span id='tsb_MessagesProcessedCount'></span><br />
+                        <b>Message Errors:</b> <span id='tsb_MessageErrorsCount'></span><br />
+                        <b>Node ID:</b> <span id='tsb_NodeID'></span><br />
+                        <b>Parent Node ID:</b> <span id='tsb_ParentNodeID'></span><br />
+                    </p>
+
+                </div>
+                <div class="contentblock" id="ThreadCustomBlock">
+                    <p>
+                        <div id="tcb_1" style="display:none"><b><span id='tcb_1k'></span>:</b> <span id='tcb_1v'></span></div><br />
+                        <div id="tcb_2" style="display:none"><b><span id='tcb_2k'></span>:</b> <span id='tcb_2v'></span></div><br />
+                        <div id="tcb_3" style="display:none"><b><span id='tcb_3k'></span>:</b> <span id='tcb_3v'></span></div><br />
+                        <div id="tcb_4" style="display:none"><b><span id='tcb_4k'></span>:</b> <span id='tcb_4v'></span></div><br />
+                        <div id="tcb_5" style="display:none"><b><span id='tcb_5k'></span>:</b> <span id='tcb_5v'></span></div><br />
+                        <div id="tcb_6" style="display:none"><b><span id='tcb_6k'></span>:</b> <span id='tcb_6v'></span></div><br />
+                        <div id="tcb_7" style="display:none"><b><span id='tcb_7k'></span>:</b> <span id='tcb_7v'></span></div><br />
+                        <div id="tcb_8" style="display:none"><b><span id='tcb_8k'></span>:</b> <span id='tcb_8v'></span></div><br />
+                        <div id="tcb_9" style="display:none"><b><span id='tcb_9k'></span>:</b> <span id='tcb_9v'></span></div><br />
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div id="header">
+            <span id='header_1'></span>
+        </div>
+    </div>
+
+</body>
+</html>
+

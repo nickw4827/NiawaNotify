@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C64002B-F67F-4BB9-8C77-2AD730A64D44}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Niawa.IpcEventMonitorWebClient</RootNamespace>
+    <AssemblyName>Niawa.IpcEventMonitorWebClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\IpcEventMonitorMdiWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IpcEventMonitorMdiWindow.Designer.cs">
+      <DependentUpon>IpcEventMonitorMdiWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IpcTreeWebWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IpcTreeWebWindow.Designer.cs">
+      <DependentUpon>IpcTreeWebWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IpcWebWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\IpcWebWindow.Designer.cs">
+      <DependentUpon>IpcWebWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MessageLogWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MessageLogWindow.Designer.cs">
+      <DependentUpon>MessageLogWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IpcCommandAdapter.cs" />
+    <Compile Include="IpcEventAdapter.cs" />
+    <Compile Include="IpcEventTreeModelAdapterThread.cs" />
+    <Compile Include="IpcEventTreeModelAdapter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeModel\FormTreeNodeContainer.cs" />
+    <Compile Include="TreeModel\TreeModelEventImpl.cs" />
+    <Compile Include="TreeModel\TreeModelNodeViewFactoryImpl.cs" />
+    <Compile Include="TreeModel\TreeModelNodeViewImpl.cs" />
+    <Compile Include="TreeModel\TreeModelViewImpl.cs" />
+    <EmbeddedResource Include="Forms\IpcEventMonitorMdiWindow.resx">
+      <DependentUpon>IpcEventMonitorMdiWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IpcTreeWebWindow.resx">
+      <DependentUpon>IpcTreeWebWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\IpcWebWindow.resx">
+      <DependentUpon>IpcWebWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MessageLogWindow.resx">
+      <DependentUpon>MessageLogWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Niawa.IpcController\Niawa.IpcController.csproj">
+      <Project>{f50363e1-bb58-4184-99ca-06d04090ce80}</Project>
+      <Name>Niawa.IpcController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niawa.MsEventController\Niawa.MsEventController.csproj">
+      <Project>{3898fc01-3fa4-4e2d-8732-9cf66c80f7c2}</Project>
+      <Name>Niawa.MsEventController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niawa.MsEventIpcEventAdapter\Niawa.MsEventIpcEventAdapter.csproj">
+      <Project>{5ca08dde-5b2d-40c1-a192-1c882b761aaa}</Project>
+      <Name>Niawa.MsEventIpcEventAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niawa.TreeModelNodeControls\Niawa.TreeModelNodeControls.csproj">
+      <Project>{c10e9969-1e6d-42d9-adb1-08e416f4ae1c}</Project>
+      <Name>Niawa.TreeModelNodeControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niawa.Utilities\Niawa.Utilities.csproj">
+      <Project>{2ecad02c-297d-4a5a-9aac-9afcdc8c5858}</Project>
+      <Name>Niawa.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Html\IpcEventMonitor.html" />
+    <Content Include="Html\IpcEventMonitorPane.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Html\jquery.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Html\style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

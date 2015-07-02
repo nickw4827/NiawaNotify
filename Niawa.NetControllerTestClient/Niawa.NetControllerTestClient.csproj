@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F199DA4B-89DE-485C-AE83-2AA9B2D500CA}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Niawa.NetControllerTestClient</RootNamespace>
+    <AssemblyName>Niawa.NetControllerTestClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NLog, Version=3.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NnaTestClient.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TcpTestClient.cs" />
+    <Compile Include="TestClient.cs" />
+    <Compile Include="UdpTestClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Niawa.IpcController\Niawa.IpcController.csproj">
+      <Project>{f50363e1-bb58-4184-99ca-06d04090ce80}</Project>
+      <Name>Niawa.IpcController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niawa.MsEventController\Niawa.MsEventController.csproj">
+      <Project>{3898fc01-3fa4-4e2d-8732-9cf66c80f7c2}</Project>
+      <Name>Niawa.MsEventController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niawa.MsEventIpcEventAdapter\Niawa.MsEventIpcEventAdapter.csproj">
+      <Project>{5ca08dde-5b2d-40c1-a192-1c882b761aaa}</Project>
+      <Name>Niawa.MsEventIpcEventAdapter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niawa.NetController\Niawa.NetController.csproj">
+      <Project>{7c3ce0dc-53a6-4b17-bfb6-46c6b9783e67}</Project>
+      <Name>Niawa.NetController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niawa.Utilities\Niawa.Utilities.csproj">
+      <Project>{2ecad02c-297d-4a5a-9aac-9afcdc8c5858}</Project>
+      <Name>Niawa.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niawa.WebNotify.IpcEventWebAPIAdapter\Niawa.WebNotify.IpcEventWebAPIAdapter.csproj">
+      <Project>{c2a3a3ac-8a32-4384-8729-bc8590ffffcb}</Project>
+      <Name>Niawa.WebNotify.IpcEventWebAPIAdapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
